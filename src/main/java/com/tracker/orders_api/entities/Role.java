@@ -2,22 +2,24 @@ package com.tracker.orders_api.entities;
 
 import jakarta.persistence.*;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "tb_role")
 public class Role {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "role_id")
-    private Long roleID;
+    private UUID roleID;
 
     private String name;
 
-    public Long getRoleID() {
+    public UUID getRoleID() {
         return roleID;
     }
 
-    public void setRoleID(Long roleID) {
+    public void setRoleID(UUID roleID) {
         this.roleID = roleID;
     }
 

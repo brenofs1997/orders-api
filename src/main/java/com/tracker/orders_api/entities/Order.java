@@ -34,7 +34,7 @@ public class Order {
     public void prePersist() {
         this.createdAt = LocalDateTime.now();
         if (this.status == null) {
-            this.status = OrderStatus.RECEIVED;
+            this.status = OrderStatus.RECEBIDO;
         }
     }
 }

@@ -2,9 +2,9 @@ package com.tracker.orders_api.entities;
 
 public enum OrderStatus {
 
-    RECEIVED,
-    IN_PREPARATION,
-    OUT_FOR_DELIVERY,
-    DELIVERED,
-    CANCELED
+    RECEBIDO,
+    EM_PREPARO,
+    SAIU_PARA_ENTREGA,
+    ENTREGUE,
+    CANCELADO
 }

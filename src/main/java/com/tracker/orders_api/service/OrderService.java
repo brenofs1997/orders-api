@@ -8,7 +8,6 @@ import com.tracker.orders_api.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class OrderService {
@@ -33,7 +32,7 @@ public class OrderService {
                 .customerName(request.customerName())
                 .deliveryAddress(request.deliveryAddress())
                 .items(items)
-                .status(OrderStatus.RECEIVED)
+                .status(OrderStatus.RECEBIDO)
                 .build();
 
         return orderRepository.save(order);
@@ -43,16 +42,14 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
-    public Order getOrderById(UUID id) {
+    public Order getOrderById(Long id) {
         return orderRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Order not found with ID: " + id));
     }
 
-    public Order updateOrderStatus(UUID id, OrderStatus newStatus) {
+    public Order updateOrderStatus(Long id, OrderStatus newStatus) {
         Order order = getOrderById(id);
         order.setStatus(newStatus);
         return orderRepository.save(order);
     }
-
-
 }
